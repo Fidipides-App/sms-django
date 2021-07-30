@@ -1,0 +1,90 @@
+<div class="modal fade" tabindex="-1" id="modalAjuda" role="dialog">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajuda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="mb-4">Pesquisa</h4>
+
+        <p>Para pesquisar, basta usar a tecla <kbd>Enter</kbd> do teclado, após inserir o número de telemóvel a pesquisar.</p>
+        <p>Os dados apresentados podem ser importados através de ficheiros <code>CSV</code> ou <code>SQL</code>.</p>
+
+        <table class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Campo</th>
+            <th scope="col">Tipo</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">id</th>
+            <td>Númerico, único.</td>
+          </tr>
+          <tr>
+            <th scope="row">nome</th>
+            <td>Texto</td>
+          </tr>
+          <tr>
+            <th scope="row">email</th>
+            <td>Texto</td>
+          </tr>
+          <tr>
+            <th scope="row">localidade</th>
+            <td>Texto</td>
+          </tr>
+          <tr>
+            <th scope="row">telefone</th>
+            <td>Texto, único.</td>
+          </tr>
+          <tr>
+            <th scope="row">observacoes</th>
+            <td>Texto</td>
+          </tr>
+          <tr>
+            <th scope="row">data_nascimento</th>
+            <td>Texto, formato <code>DD/MM/YYYY</code>.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h4 class="mt-4 mb-4">SMS</h4>
+        <p>O módulo de SMS permite o envio de mensagem SMS individuais ou em massa, mediante o upload de um ficheiro <code>CSV</code>, com o formato abaixo descrito.</p>
+
+        <table class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Campo</th>
+            <th scope="col">Tipo</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">id</th>
+            <td>Númerico, único.</td>
+          </tr>
+          <tr>
+            <th scope="row">telefone</th>
+            <td>Texto, com indicativo.</td>
+          </tr>
+          <tr>
+            <th scope="row">mensagem</th>
+            <td>Texto</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h4 class="mt-4 mb-4">Exportar</h4>
+        <p>O módulo Exportar permite a exportação dos registos da base de dados para um ficheiro <code>CSV</code>, com o formato acima descrito.</p>
+
+        <p class="mt-4">Encontrou um erro? Quer adicionar mais campos? <a href="mailto:afonso@afonsosantos.me">Contacte-me!</a></p>
+        <small>&copy; 2021 - Afonso Santos | Versão <span class="fw-bold">Tian Di Ren</span></small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

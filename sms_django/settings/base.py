@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "accounts",
+    "search",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -32,6 +35,12 @@ ROOT_URLCONF = "sms_django.urls"
 INTERNAL_IPS = ["127.0.0.1"]
 
 WSGI_APPLICATION = "sms_django.wsgi.application"
+
+LOGOUT_REDIRECT_URL = "login"
+
+LOGIN_REDIRECT_URL = "home"
+
+LOGIN_URL = "login"
 
 
 # ==============================================================================
@@ -76,9 +85,7 @@ TEMPLATES = [
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=config(
-            "DATABASE_URL", default="postgres://simple:simple@localhost:5432/simple"
-        ),
+        default=config("DATABASE_URL", default="postgres://simple:simple@localhost:5432/simple"),
         conn_max_age=600,
     )
 }
@@ -150,6 +157,7 @@ MEDIA_ROOT = BASE_DIR.parent.parent / "media"
 # THIRD-PARTY SETTINGS
 # ==============================================================================
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # ==============================================================================
 # FIRST-PARTY SETTINGS

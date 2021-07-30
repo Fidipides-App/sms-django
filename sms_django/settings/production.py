@@ -29,7 +29,7 @@ SESSION_COOKIE_SECURE = True
 
 sentry_sdk.init(
     dsn=config("SENTRY_DSN", default=""),
-    environment=SIMPLE_ENVIRONMENT,
-    release="simple@%s" % simple.__version__,
+    environment=SMS_DJANGO_ENVIRONMENT,
+    release="simple@%s" % sms_django.__version__,
     integrations=[DjangoIntegration()],
 )
