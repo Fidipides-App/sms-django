@@ -1,0 +1,93 @@
+{% extends 'search/base.html' %}
+
+{% block title %}Resultado{% endblock title %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'search' %}">Pesquisa</a></li>
+  <li class="breadcrumb-item active">Resultado</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <h3 class="mb-4">Resultados</h3>
+
+  {% for obj in patient %}
+    <form class="mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label">Código de Paciente/Cliente</label>
+                <input class="form-control" type="text" value="{{ obj.code }}" readonly>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label">Telemóvel</label>
+                <input class="form-control" type="text" value="{{ obj.phone }}" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nome Completo</label>
+            <input class="form-control" type="text" value="{{ obj.name }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" type="text" value="{{ obj.email }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Observações</label>
+            <textarea rows="4" class="form-control" readonly>{{ obj.notes }}</textarea>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3" id="data_nascimento_wrapper">
+            <label class="form-label">Data de Nascimento</label>
+            <input class="form-control" id="data_nascimento_input" type="text" value="{{ obj.birthdate|date:'d/m/Y' }}"
+                   readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Morada</label>
+            <textarea rows="4" class="form-control" readonly>{{ obj.address }}</textarea>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label">Código Postal</label>
+                <input class="form-control" type="text" value="{{ obj.postal_code }}" readonly>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label class="form-label">Localidade</label>
+                <input class="form-control" type="text" value="{{ obj.city }}" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  {% empty %}
+    <div class="alert alert-danger" role="alert">
+      Nenhum paciente com o telefone <span class="font-weight-bold">{{ request.GET.q }}</span> encontrado, <a
+      href="{% url 'search' %}">voltar</a>.
+    </div>
+  {% endfor %}
+
+{% endblock content %}
+
+{% block scripts %}
+  <script type="text/javascript">
+    var data_input = $('#data_nascimento_input').val();
+    var data_nascimento = moment(data_input, 'DD/MM/YYYY').format('DD/MM');
+    var data_hoje = moment().format('DD/MM');
+
+    if (data_hoje === data_nascimento) {
+      $('#data_nascimento_wrapper').addClass(
+        'bg-success bg-gradient p-3 fw-bold text-light h5 rounded'
+      );
+    }
+  </script>
+{% endblock scripts %}

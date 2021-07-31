@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class Pacient(models.Model):
+class Patient(models.Model):
     name = models.CharField(max_length=255, blank=True, verbose_name=_("Name"))
     code = models.IntegerField(unique=True, verbose_name=_("Code"))
     phone = models.CharField(max_length=15, unique=True, blank=False, verbose_name=_("Phone Number"))

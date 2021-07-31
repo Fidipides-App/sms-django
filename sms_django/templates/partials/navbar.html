@@ -5,53 +5,55 @@
     <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{% static 'img/logo.png' %}" class="d-inline-block align-text-top" alt="Tian Di Ren">
     </a>
-    {% if user.is_authenticated %}
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">
-            <i class="fas fa-phone text-light me-1"></i>
-            Pesquisar
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="export.php">
-            <i class="fas fa-file-export text-light me-1"></i>
-            Exportar
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sms.php">
-            <i class="fas fa-sms text-light me-1"></i>
-            SMS
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modalAjuda">
-            <i class="fas fa-question-circle text-light me-1"></i>
-            Ajuda
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            {{ user.username }}
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">My account</a></li>
-            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    {% else %}
-    <ul class="navbar-nav mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">
-          <i class="fas fa-key text-light me-1"></i>
-          Login
-        </a>
-      </li>
-    </ul>
-    {% endif %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-content">
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'search' %}">
+              <i class="fas fa-question-circle text-light me-1"></i>
+              Pesquisar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-sms text-light me-1"></i>
+              SMS
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-file-export text-light me-1"></i>
+              Exportar
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+              {{ user.username }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">My account</a></li>
+              <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      {% else %}
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+              <i class="fas fa-key text-light me-1"></i>
+              Login
+            </a>
+          </li>
+        </ul>
+      {% endif %}
+    </div>
   </div>
 </nav>

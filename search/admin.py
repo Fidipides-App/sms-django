@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from search.models import Pacient
+from search.models import Patient
 
 
-@admin.register(Pacient)
+@admin.register(Patient)
 class PacientAdmin(admin.ModelAdmin):
     pass

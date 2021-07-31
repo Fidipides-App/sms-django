@@ -1,0 +1,27 @@
+{% extends 'search/base.html' %}
+
+{% block title %}Início{% endblock title %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Pesquisa</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <h3 class="mb-4">Pesquisa</h3>
+  <p>Para pesquisar, basta pressionar <kbd>Enter</kbd>.</p>
+
+  <div class="row">
+    <div class="col-md-5 me-2">
+      <form class="my-4" action="{% url 'search-result' %}" method="get">
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fas fa-phone"></i>
+            </span>
+          </div>
+          <input type="text" class="form-control" name="q" placeholder="Telemóvel">
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
