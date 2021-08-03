@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "accounts",
     "search",
+    "sms",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
