@@ -161,6 +161,9 @@ MEDIA_ROOT = BASE_DIR.parent.parent / "media"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+
 # ==============================================================================
 # FIRST-PARTY SETTINGS
 # ==============================================================================
