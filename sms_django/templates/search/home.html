@@ -1,14 +1,10 @@
 {% extends 'search/base.html' %}
 
-{% load custom_tags %}
-
 {% block title %}Início{% endblock title %}
 
 {% block content %}
   <h3 class="mb-4">Página Inicial</h3>
   <p>Bem-vindo!</p>
-
-  {{ request.user|gravatar:150 }}
 
   <div class="row mt-4">
     <div class="col">
