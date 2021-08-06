@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
+    "django_celery_beat",
     "accounts",
     "search",
     "sms",
@@ -163,6 +164,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 # ==============================================================================
 # FIRST-PARTY SETTINGS
