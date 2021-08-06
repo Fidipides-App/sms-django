@@ -1,1 +1,2 @@
-CELERY: celery -A sms_django worker -l info -P gevent
+CELERY: celery -A sms_django worker -l INFO -P gevent
+CELERY BEAT: celery -A sms_django beat -l INFO
